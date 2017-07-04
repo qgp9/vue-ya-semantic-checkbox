@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" />
+</head>
+<body>
+  <div id="app1">
+    <div class="ui test container segment">
+      <div class="ui form">
+        <div class="ui segment">
+          {{mychecked}}
+          <div class="inline field">
+            <su-checkbox v-model="mychecked.a"> Apple </su-checkbox>
+            <su-checkbox v-model="mychecked.b"> Orange </su-checkbox>
+            <su-checkbox v-model="mychecked.c"> Banana </su-checkbox>
+          </div>
+          <div class="inline field">
+            <su-checkbox class="slider" v-model="mychecked.a"> Apple </su-checkbox>
+            <su-checkbox class="slider" v-model="mychecked.b"> Orange </su-checkbox>
+            <su-checkbox class="slider" v-model="mychecked.c"> Banana </su-checkbox>
+          </div>
+          <div class="inline field">
+            <su-checkbox class="toggle" v-model="mychecked.a"> Apple </su-checkbox>
+            <su-checkbox class="toggle" v-model="mychecked.b"> Orange </su-checkbox>
+            <su-checkbox class="toggle" :disabled="mychecked.b" v-model="mychecked.c"> Banana (disabled when Orange is selected)</su-checkbox>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="ui segment">
+          <h2>{{mypicked}}</h2>
+          <div class="inline field">
+            <su-radiobutton v-model="mypicked" value="apple"> Apple </su-radiobutton>
+            <su-radiobutton v-model="mypicked" value="orange"> Orange </su-radiobutton>
+            <su-radiobutton v-model="mypicked" value="banana"> Banana </su-radiobutton>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="dist/semantic-checkbox.browser.min.js"></script>
+  <script>
+  var app1 = new Vue({
+    el: '#app1',
+    data () {
+      return {
+        mychecked: {
+          a: true,
+          b: false,
+          c: false,
+          d: false
+        },
+        mypicked: ''
+      }
+    }
+  })
+  </script>
+</body>
+</html>
